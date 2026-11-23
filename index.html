@@ -1,0 +1,637 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#080808">
+<title>PIXORA — Roblox Account Library</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Press+Start+2P&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#080808;--panel:#101010;--panel2:#151515;--line:#303030;--line2:#555;--white:#f4f4f4;--muted:#929292;--pixel:"Press Start 2P",monospace}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--white);font-family:Manrope,Arial,sans-serif;min-height:100vh}
+body:before{content:"";position:fixed;inset:0;pointer-events:none;opacity:.13;background-image:linear-gradient(#fff1 1px,transparent 1px),linear-gradient(90deg,#fff1 1px,transparent 1px);background-size:28px 28px;mask-image:linear-gradient(#000,transparent 85%)}
+button,input,select,textarea{font:inherit}button{cursor:pointer}.app{width:min(1440px,calc(100% - 42px));margin:auto;padding:26px 0 56px;position:relative}
+header{display:flex;align-items:center;justify-content:space-between;gap:24px;padding:8px 0 24px;border-bottom:1px solid var(--line)}
+.brand{display:flex;align-items:center;gap:13px;text-decoration:none;color:inherit}.brand-symbol{width:48px;height:48px;background:#f4f4f4;color:#090909;display:grid;place-items:center;clip-path:polygon(0 0,75% 0,75% 12%,100% 12%,100% 88%,88% 88%,88% 100%,0 100%);font:20px var(--pixel)}
+.brand-title{font:clamp(15px,2vw,21px) var(--pixel);letter-spacing:1px}.brand-sub{font-size:9px;color:var(--muted);letter-spacing:2px;text-transform:uppercase;margin-top:8px}
+nav{display:flex;gap:8px;flex-wrap:wrap}.nav-btn{display:flex;align-items:center;gap:9px;background:#0c0c0c;color:#ddd;border:1px solid var(--line);padding:11px 14px;font-size:12px;font-weight:700}.nav-btn.active,.nav-btn:hover{border-color:#eee;color:#fff;box-shadow:0 0 0 1px #fff2}
+svg.icon{width:18px;height:18px;display:block;flex:none;stroke:currentColor;fill:none;stroke-width:1.9;stroke-linecap:round;stroke-linejoin:round}
+.roblox-logo{width:27px;height:27px;display:block;transform:rotate(15deg)}
+.hero{padding:28px 0 20px;display:grid;grid-template-columns:repeat(3,minmax(0,1fr)) minmax(210px,1fr);gap:12px}
+.stat,.tagline{min-height:78px;border:1px solid var(--line);background:linear-gradient(115deg,#141414,#0b0b0b);display:flex;align-items:center;gap:16px;padding:15px 18px}
+.stat-icon{width:36px;height:36px;color:#fff}.stat strong{display:block;font-size:21px}.stat span{display:block;color:var(--muted);font-size:11px;margin-top:3px}.tagline{justify-content:center;font-size:12px;font-weight:800;letter-spacing:.3px;text-align:center;border:1px dashed #777}
+.layout{display:grid;grid-template-columns:250px minmax(0,1fr) 250px;gap:16px;align-items:start}
+.panel{background:linear-gradient(145deg,#121212,#0b0b0b);border:1px solid var(--line);padding:17px;min-width:0}
+.panel-title{display:flex;align-items:center;gap:10px;font-size:15px;font-weight:800;margin:0 0 16px}
+.category-list{display:grid;gap:5px}.category{display:flex;align-items:center;gap:11px;width:100%;padding:11px 10px;background:transparent;border:1px solid transparent;color:#ccc;text-align:left;font-size:12px}.category:hover,.category.active{background:#242424;border-color:#454545;color:#fff}.category .count{margin-left:auto;color:#999;font-size:11px}.cat-icon{width:22px;height:22px;display:grid;place-items:center}
+.sidebar-art{margin-top:18px;min-height:150px;border:1px solid #303030;display:flex;flex-direction:column;justify-content:end;padding:14px;background:radial-gradient(ellipse at 50% 15%,#555 0,#242424 30%,#101010 70%);overflow:hidden;position:relative}
+.pixel-mountain{font:10px var(--pixel);color:#aaa;line-height:2;letter-spacing:2px}.sidebar-art strong{font-size:12px;margin-top:8px}.sidebar-art small{color:#999;font-size:10px}
+.form-panel{padding:18px 20px}.field-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px}.field{display:flex;flex-direction:column;gap:7px;min-width:0}.field label{font-size:10px;color:#aaa;letter-spacing:1.2px;text-transform:uppercase}.field input,.field textarea,.field select,.search{width:100%;background:#090909;border:1px solid #3b3b3b;color:#f4f4f4;padding:12px 13px;outline:none;min-height:44px}.field textarea{resize:vertical;min-height:72px}.field input:focus,.field textarea:focus,.field select:focus,.search:focus{border-color:#ddd}
+.region-wrap{margin-top:14px}.region-label{font-size:10px;color:#aaa;letter-spacing:1.2px;text-transform:uppercase;margin-bottom:9px}.flags{display:flex;gap:7px;flex-wrap:wrap;align-items:center}.flag-btn{height:43px;min-width:54px;padding:6px 9px;background:#0a0a0a;border:1px solid #343434;display:grid;place-items:center}.flag-btn img{width:29px;height:20px;object-fit:cover}.flag-btn:hover,.flag-btn.selected{border-color:#fff;box-shadow:0 0 0 1px #fff5}.more-region{height:43px;background:#0a0a0a;color:#eee;border:1px solid #343434;padding:0 12px;font-size:11px}.more-region:hover{border-color:#ddd;color:#fff}
+.form-actions{display:flex;gap:10px;margin-top:15px}.primary{flex:1;min-height:46px;border:1px solid #eee;background:#eee;color:#090909;font-weight:800;display:flex;align-items:center;justify-content:center;gap:10px}.primary:hover{background:#ccc}.secondary{min-height:46px;padding:0 15px;border:1px solid #444;background:#151515;color:#ddd}
+.security-list{display:grid;gap:13px}.security-item{display:flex;align-items:center;gap:9px;color:#ccc;font-size:11px}.security-item .icon{width:17px;height:17px}
+.brand-card{margin-top:18px;border:1px dashed #777;padding:13px;display:flex;align-items:center;gap:10px}.brand-card .pixel-crown{font-size:26px}.brand-card strong{font-size:12px}.brand-card small{display:block;color:#999;font-size:10px;margin-top:3px}
+.accounts-panel{margin-top:16px;padding:18px 20px}.accounts-head{display:flex;justify-content:space-between;align-items:center;gap:12px;margin-bottom:14px}.accounts-head .panel-title{margin:0}.search{max-width:280px;min-height:39px;padding:9px 12px;font-size:11px}
+.account-list{display:grid;gap:9px}.account-card{display:grid;grid-template-columns:48px minmax(0,1fr) auto;gap:13px;align-items:center;border:1px solid #303030;background:#0b0b0b;padding:12px}.game-icon{width:44px;height:44px;background:#eee;color:#090909;display:grid;place-items:center}.game-icon svg{width:25px;height:25px}.account-name{font-size:13px;font-weight:800}.account-meta{display:flex;align-items:center;gap:7px;flex-wrap:wrap;color:#999;font-size:10px;margin-top:5px}.account-meta img{width:19px;height:13px;object-fit:cover;border:1px solid #444}.account-actions{display:flex;gap:6px;flex-wrap:wrap;justify-content:end}.small-btn{display:flex;align-items:center;gap:6px;padding:8px 9px;background:#111;border:1px solid #383838;color:#ccc;font-size:10px}.small-btn:hover{border-color:#aaa;color:#fff}.small-btn.delete:hover{border-color:#d66;color:#f99}
+.empty{border:1px dashed #3a3a3a;padding:30px;text-align:center;color:#999;font-size:12px}.empty b{display:block;color:#eee;margin-bottom:7px}
+footer{color:#777;font-size:10px;line-height:1.7;margin-top:17px}.toast{position:fixed;bottom:22px;left:50%;transform:translate(-50%,20px);opacity:0;pointer-events:none;background:#eee;color:#090909;padding:11px 16px;font-size:12px;font-weight:800;transition:.2s;z-index:9}.toast.show{opacity:1;transform:translate(-50%,0)}
+@media(max-width:1050px){.layout{grid-template-columns:210px minmax(0,1fr)}.right-sidebar{grid-column:1/-1;display:grid;grid-template-columns:1fr 1fr;gap:14px}.right-sidebar .panel{margin:0}.hero{grid-template-columns:repeat(3,1fr)}.tagline{grid-column:1/-1;min-height:48px}}
+@media(max-width:700px){.app{width:calc(100% - 24px);padding-top:14px}header{align-items:flex-start;flex-direction:column}.hero{grid-template-columns:1fr 1fr;padding-top:18px}.stat{padding:12px}.layout{grid-template-columns:1fr}.left-sidebar{order:2}.main-column{order:1}.right-sidebar{order:3;grid-template-columns:1fr}.sidebar-art{min-height:100px}.field-grid{grid-template-columns:1fr}.accounts-head{align-items:stretch;flex-direction:column}.search{max-width:none}.account-card{grid-template-columns:42px 1fr}.game-icon{width:40px;height:40px}.account-actions{grid-column:1/-1;justify-content:flex-start}.nav-btn{padding:9px 11px}}
+@media(max-width:420px){.brand-title{font-size:13px}.hero{gap:7px}.stat{gap:9px;padding:10px}.stat-icon{width:26px;height:26px}.stat strong{font-size:17px}.stat span{font-size:9px}.tagline{font-size:10px}.panel{padding:14px}.form-panel,.accounts-panel{padding:14px}.flag-btn{min-width:47px}.account-card{gap:9px}}
+
+/* ─── Hero art (pixel banner restored) ─── */
+.hero-art{
+  position:relative;
+  min-height:230px;
+  margin:22px 0 18px;
+  overflow:hidden;
+  border:1px solid #555;
+  background:#090909;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+}
+.hero-art svg{
+  width:100%;
+  height:100%;
+  display:block;
+  image-rendering:pixelated;
+}
+
+/* ─── Added styles ─── */
+.form-hint{font-size:11px;color:#999;margin:-10px 0 14px;letter-spacing:.3px}
+.category-desc{display:block;color:#777;font-size:10px;margin-top:2px}
+.account-creds{display:grid;gap:5px;margin-top:9px}
+.cred-row{display:flex;align-items:center;gap:8px;background:#0e0e0e;border:1px solid #262626;padding:6px 9px;min-width:0}
+.cred-label{color:#888;font-size:9px;letter-spacing:1px;text-transform:uppercase;flex-shrink:0;width:52px}
+.cred-value{flex:1;min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;font-family:ui-monospace,SFMono-Regular,Menlo,monospace;color:#eaeaea;font-size:11px}
+.cred-value.masked{letter-spacing:3px;color:#888}
+.cred-actions{display:flex;gap:2px;flex-shrink:0}
+.cred-btn{width:24px;height:24px;display:grid;place-items:center;background:transparent;border:1px solid transparent;color:#888;padding:0}
+.cred-btn:hover{color:#fff;border-color:#444;background:#141414}
+.cred-btn svg{width:13px;height:13px}
+.account-card .game-icon{align-self:start;margin-top:2px}
+.account-card .account-actions{align-self:start}
+</style>
+</head>
+<body>
+<div class="app">
+  <header>
+    <a class="brand" href="#">
+      <span class="brand-symbol">P</span>
+      <div>
+        <div class="brand-title">PIXORA</div>
+        <div class="brand-sub">Roblox Account Library</div>
+      </div>
+    </a>
+    <nav>
+      <button class="nav-btn active" type="button">
+        <svg class="icon" viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="16" rx="2"/><path d="M3 10h18"/></svg>
+        Accounts
+      </button>
+      <button class="nav-btn" type="button" data-soon>
+        <svg class="icon" viewBox="0 0 24 24"><path d="M21 8v13H3V8"/><path d="M1 3h22v5H1z"/><path d="M10 12h4"/></svg>
+        Archive
+      </button>
+      <button class="nav-btn" type="button" data-soon>
+        <svg class="icon" viewBox="0 0 24 24"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 1 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 1 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 1 1-2.83-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 1 1 0-4h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 1 1 2.83-2.83l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 1 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 1 1 2.83 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 1 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z"/></svg>
+        Settings
+      </button>
+    </nav>
+  </header>
+
+  <section class="hero">
+    <div class="stat">
+      <svg class="icon stat-icon" viewBox="0 0 24 24"><path d="M21 8v13H3V8"/><path d="M1 3h22v5H1z"/><path d="M10 12h4"/></svg>
+      <div><strong id="statTotal">0</strong><span>Total accounts</span></div>
+    </div>
+    <div class="stat">
+      <svg class="icon stat-icon" viewBox="0 0 24 24"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+      <div><strong id="statCategory">0</strong><span>In this category</span></div>
+    </div>
+    <div class="stat">
+      <svg class="icon stat-icon" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 3"/></svg>
+      <div><strong id="statToday">0</strong><span>Added today</span></div>
+    </div>
+    <div class="tagline">Curated Roblox accounts, sorted by age tier — stored locally in your browser</div>
+  </section>
+
+  <!-- restored pixel banner -->
+  <div class="hero-art" aria-hidden="true">
+    <svg viewBox="0 0 800 230" preserveAspectRatio="xMidYMid slice" shape-rendering="crispEdges" xmlns="http://www.w3.org/2000/svg">
+      <rect width="800" height="230" fill="#0a0a14"/>
+      <!-- stars -->
+      <g fill="#ffffff" opacity="0.85">
+        <rect x="60" y="34" width="2" height="2"/>
+        <rect x="120" y="70" width="2" height="2"/>
+        <rect x="210" y="40" width="2" height="2"/>
+        <rect x="300" y="60" width="2" height="2"/>
+        <rect x="390" y="30" width="2" height="2"/>
+        <rect x="470" y="66" width="2" height="2"/>
+        <rect x="560" y="38" width="2" height="2"/>
+        <rect x="690" y="56" width="2" height="2"/>
+        <rect x="760" y="28" width="2" height="2"/>
+        <rect x="100" y="120" width="2" height="2"/>
+        <rect x="340" y="112" width="2" height="2"/>
+        <rect x="520" y="130" width="2" height="2"/>
+        <rect x="620" y="100" width="2" height="2"/>
+      </g>
+      <!-- pixel moon -->
+      <g fill="#cfcfd8">
+        <rect x="646" y="38" width="16" height="8"/>
+        <rect x="642" y="46" width="24" height="8"/>
+        <rect x="646" y="54" width="16" height="8"/>
+      </g>
+      <!-- back mountains -->
+      <path d="M0,200 L100,120 L140,120 L180,160 L240,100 L300,140 L360,80 L420,140 L480,100 L540,160 L600,120 L660,160 L720,110 L800,160 L800,230 L0,230 Z" fill="#1a1a2a"/>
+      <!-- mid mountains -->
+      <path d="M0,210 L80,150 L140,180 L200,130 L260,170 L320,120 L380,170 L440,130 L500,180 L560,140 L620,180 L700,130 L800,190 L800,230 L0,230 Z" fill="#242436"/>
+      <!-- front mountains -->
+      <path d="M0,220 L120,170 L200,200 L280,160 L360,200 L440,170 L520,205 L600,175 L680,205 L760,180 L800,200 L800,230 L0,230 Z" fill="#2f2f46"/>
+      <!-- grid floor -->
+      <g stroke="#ffffff" stroke-opacity="0.08">
+        <line x1="0" y1="222" x2="800" y2="222"/>
+        <line x1="0" y1="226" x2="800" y2="226"/>
+        <line x1="200" y1="214" x2="200" y2="230"/>
+        <line x1="400" y1="214" x2="400" y2="230"/>
+        <line x1="600" y1="214" x2="600" y2="230"/>
+      </g>
+      <!-- foreground pixel trees -->
+      <g fill="#0d0d18">
+        <rect x="90" y="196" width="8" height="22"/>
+        <rect x="82" y="188" width="24" height="10"/>
+        <rect x="86" y="180" width="16" height="10"/>
+        <rect x="90" y="172" width="8" height="10"/>
+        <rect x="700" y="190" width="8" height="26"/>
+        <rect x="692" y="182" width="24" height="10"/>
+        <rect x="696" y="174" width="16" height="10"/>
+        <rect x="700" y="166" width="8" height="10"/>
+      </g>
+    </svg>
+  </div>
+
+  <div class="layout">
+    <aside class="panel left-sidebar">
+      <h2 class="panel-title">
+        <svg class="icon" viewBox="0 0 24 24"><path d="M3 6h18"/><path d="M7 12h10"/><path d="M11 18h2"/></svg>
+        Categories
+      </h2>
+      <div class="category-list" id="categoryList"></div>
+      <div class="sidebar-art">
+        <div class="pixel-mountain">/\/\__<br>/\/\/\/\<br>/\/\/\/\/\</div>
+        <strong>Pixel Valley</strong>
+        <small>Vault edition</small>
+      </div>
+    </aside>
+
+    <main class="main-column">
+      <section class="panel form-panel">
+        <h2 class="panel-title">
+          <svg class="icon" viewBox="0 0 24 24"><path d="M12 5v14"/><path d="M5 12h14"/></svg>
+          New account
+        </h2>
+        <div class="form-hint" id="formCategoryLabel">Adding to 12-15+</div>
+        <form id="accountForm" autocomplete="off">
+          <div class="field-grid">
+            <div class="field">
+              <label for="accLogin">Login</label>
+              <input id="accLogin" type="text" placeholder="Username or email" required>
+            </div>
+            <div class="field">
+              <label for="accPass">Password</label>
+              <input id="accPass" type="text" placeholder="Account password" required>
+            </div>
+            <div class="field">
+              <label for="accName">Account name (optional)</label>
+              <input id="accName" type="text" placeholder="e.g. PixelFox">
+            </div>
+            <div class="field">
+              <label for="accNote">Note (optional)</label>
+              <input id="accNote" type="text" placeholder="Anything to remember">
+            </div>
+          </div>
+
+          <div class="region-wrap">
+            <div class="region-label">Region</div>
+            <div class="flags" id="flags"></div>
+          </div>
+
+          <div class="form-actions">
+            <button type="submit" class="primary">
+              <svg class="icon" viewBox="0 0 24 24"><path d="M12 5v14"/><path d="M5 12h14"/></svg>
+              Add account
+            </button>
+            <button type="button" class="secondary" id="clearBtn">Clear</button>
+          </div>
+        </form>
+      </section>
+
+      <section class="panel accounts-panel">
+        <div class="accounts-head">
+          <h2 class="panel-title">
+            <svg class="icon" viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+            Accounts
+          </h2>
+          <input class="search" id="searchInput" type="text" placeholder="Search login, name, note, region...">
+        </div>
+        <div class="account-list" id="accountList"></div>
+      </section>
+    </main>
+
+    <aside class="panel right-sidebar">
+      <h2 class="panel-title">
+        <svg class="icon" viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+        Security
+      </h2>
+      <div class="security-list">
+        <div class="security-item">
+          <svg class="icon" viewBox="0 0 24 24"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+          Stored locally in your browser
+        </div>
+        <div class="security-item">
+          <svg class="icon" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 3"/></svg>
+          Passwords hidden until revealed
+        </div>
+        <div class="security-item">
+          <svg class="icon" viewBox="0 0 24 24"><path d="M21 8v13H3V8"/><path d="M1 3h22v5H1z"/><path d="M10 12h4"/></svg>
+          Nothing leaves your device
+        </div>
+      </div>
+      <div class="brand-card">
+        <div class="pixel-crown">♛</div>
+        <div>
+          <strong>PIXORA vault</strong>
+          <small>Roblox account library</small>
+        </div>
+      </div>
+    </aside>
+  </div>
+
+  <footer>
+    PIXORA — Roblox account library. Data is kept in your browser only. Use responsibly.
+  </footer>
+</div>
+<div class="toast" id="toast">Saved</div>
+
+<script>
+(function(){
+  'use strict';
+
+  const STORAGE_KEY = 'pixora-accounts-v1';
+
+  const REGIONS = [
+    {code:'us', name:'United States'},
+    {code:'gb', name:'United Kingdom'},
+    {code:'de', name:'Germany'},
+    {code:'fr', name:'France'},
+    {code:'nl', name:'Netherlands'},
+    {code:'pl', name:'Poland'},
+    {code:'ru', name:'Russia'},
+    {code:'ua', name:'Ukraine'},
+    {code:'tr', name:'Turkey'},
+    {code:'br', name:'Brazil'},
+    {code:'in', name:'India'},
+    {code:'ph', name:'Philippines'},
+    {code:'id', name:'Indonesia'},
+    {code:'vn', name:'Vietnam'},
+    {code:'th', name:'Thailand'},
+    {code:'jp', name:'Japan'},
+    {code:'kr', name:'South Korea'},
+    {code:'au', name:'Australia'},
+    {code:'ca', name:'Canada'},
+    {code:'mx', name:'Mexico'},
+    {code:'ar', name:'Argentina'},
+    {code:'es', name:'Spain'},
+    {code:'it', name:'Italy'},
+    {code:'se', name:'Sweden'},
+    {code:'no', name:'Norway'},
+    {code:'fi', name:'Finland'},
+    {code:'dk', name:'Denmark'},
+    {code:'cz', name:'Czechia'},
+    {code:'ro', name:'Romania'},
+    {code:'sa', name:'Saudi Arabia'},
+    {code:'ae', name:'UAE'},
+    {code:'za', name:'South Africa'},
+    {code:'nz', name:'New Zealand'},
+    {code:'pt', name:'Portugal'},
+    {code:'gr', name:'Greece'},
+    {code:'be', name:'Belgium'},
+    {code:'ch', name:'Switzerland'},
+    {code:'at', name:'Austria'},
+    {code:'hu', name:'Hungary'},
+    {code:'bg', name:'Bulgaria'},
+    {code:'cn', name:'China'},
+    {code:'hk', name:'Hong Kong'},
+    {code:'sg', name:'Singapore'},
+    {code:'my', name:'Malaysia'}
+  ];
+
+  /* 12-15+ and 21+ (18 replaced by 21+) */
+  const CATEGORIES = [
+    {id:'12-15', label:'12-15+', hint:'Teen tier'},
+    {id:'21',    label:'21+',    hint:'Adult tier'}
+  ];
+
+  const VISIBLE_FLAGS = 7;
+
+  const state = {
+    accounts: load(),
+    category: '12-15',
+    region: 'us',
+    search: '',
+    flagsExpanded: false,
+    revealed: new Set()
+  };
+
+  const $ = id => document.getElementById(id);
+  const categoryListEl = $('categoryList');
+  const flagsEl        = $('flags');
+  const accountListEl  = $('accountList');
+  const searchInput    = $('searchInput');
+  const form           = $('accountForm');
+  const toastEl        = $('toast');
+  const formHint       = $('formCategoryLabel');
+
+  function load(){
+    try { return JSON.parse(localStorage.getItem(STORAGE_KEY)) || []; }
+    catch(e){ return []; }
+  }
+  function save(){
+    try { localStorage.setItem(STORAGE_KEY, JSON.stringify(state.accounts)); }
+    catch(e){}
+  }
+
+  function escapeHtml(s){
+    return String(s).replace(/[&<>"']/g, c => ({
+      '&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'
+    }[c]));
+  }
+  function flagUrl(code, size){
+    return 'https://flagcdn.com/w' + (size || 40) + '/' + code + '.png';
+  }
+  function regionName(code){
+    const r = REGIONS.find(x => x.code === code);
+    return r ? r.name : String(code).toUpperCase();
+  }
+  function labelFor(id){
+    const c = CATEGORIES.find(x => x.id === id);
+    return c ? c.label : id;
+  }
+  function showToast(msg){
+    toastEl.textContent = msg;
+    toastEl.classList.add('show');
+    clearTimeout(showToast._t);
+    showToast._t = setTimeout(() => toastEl.classList.remove('show'), 1800);
+  }
+  function copy(text, okMsg){
+    if (navigator.clipboard && navigator.clipboard.writeText){
+      navigator.clipboard.writeText(text)
+        .then(() => showToast(okMsg || 'Copied'))
+        .catch(() => fallbackCopy(text, okMsg));
+    } else {
+      fallbackCopy(text, okMsg);
+    }
+  }
+  function fallbackCopy(text, okMsg){
+    const ta = document.createElement('textarea');
+    ta.value = text;
+    ta.style.position = 'fixed';
+    ta.style.opacity = '0';
+    document.body.appendChild(ta);
+    ta.select();
+    try { document.execCommand('copy'); showToast(okMsg || 'Copied'); }
+    catch(e){ showToast('Copy failed'); }
+    ta.remove();
+  }
+
+  function catIcon(id){
+    if (id === '21'){
+      return '<svg class="icon" viewBox="0 0 24 24"><path d="M3 17l3-9 4 4 2-6 2 6 4-4 3 9z"/><path d="M3 20h18"/></svg>';
+    }
+    return '<svg class="icon" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M8 14s1.5 2 4 2 4-2 4-2"/><path d="M9 9h.01"/><path d="M15 9h.01"/></svg>';
+  }
+
+  function renderCategories(){
+    categoryListEl.innerHTML = CATEGORIES.map(cat => {
+      const count = state.accounts.filter(a => a.category === cat.id).length;
+      const active = cat.id === state.category ? ' active' : '';
+      return '<button class="category' + active + '" data-cat="' + cat.id + '" type="button">' +
+               '<span class="cat-icon">' + catIcon(cat.id) + '</span>' +
+               '<span>' + cat.label +
+                 '<span class="category-desc">' + cat.hint + '</span>' +
+               '</span>' +
+               '<span class="count">' + count + '</span>' +
+             '</button>';
+    }).join('');
+  }
+
+  function renderFlags(){
+    const list = state.flagsExpanded ? REGIONS : REGIONS.slice(0, VISIBLE_FLAGS);
+    const items = list.map(r => {
+      const sel = r.code === state.region ? ' selected' : '';
+      return '<button class="flag-btn' + sel + '" data-region="' + r.code + '" type="button" title="' + escapeHtml(r.name) + '">' +
+               '<img src="' + flagUrl(r.code, 40) + '" alt="' + r.code.toUpperCase() + '" loading="lazy">' +
+             '</button>';
+    }).join('');
+    const remaining = REGIONS.length - VISIBLE_FLAGS;
+    const more = '<button class="more-region" type="button" data-toggle-flags>' +
+                 (state.flagsExpanded ? 'Less' : '+' + remaining + ' more') +
+                 '</button>';
+    flagsEl.innerHTML = items + more;
+  }
+
+  function visibleAccounts(){
+    const q = state.search.trim().toLowerCase();
+    return state.accounts
+      .filter(a => a.category === state.category)
+      .filter(a => {
+        if (!q) return true;
+        const hay = [a.name, a.login, a.note, a.region].join(' ').toLowerCase();
+        return hay.indexOf(q) !== -1;
+      })
+      .sort((a, b) => b.createdAt - a.createdAt);
+  }
+
+  function renderAccounts(){
+    const items = visibleAccounts();
+    if (!items.length){
+      accountListEl.innerHTML =
+        '<div class="empty"><b>No accounts yet</b>' +
+        'Use the form on the left to add your first account in this category.' +
+        '</div>';
+      return;
+    }
+
+    accountListEl.innerHTML = items.map(a => {
+      const revealed = state.revealed.has(a.id);
+      const masked = '•'.repeat(Math.min(12, Math.max(6, a.password.length)));
+      const passDisplay = revealed ? escapeHtml(a.password) : masked;
+      const passClass = revealed ? 'cred-value' : 'cred-value masked';
+      const eyeIcon = revealed
+        ? '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17.94 17.94A10.07 10.07 0 0 1 12 20c-7 0-11-8-11-8a18.45 18.45 0 0 1 5.06-5.94"/><path d="M9.9 4.24A9.12 9.12 0 0 1 12 4c7 0 11 8 11 8a18.5 18.5 0 0 1-2.16 3.19"/><path d="M14.12 14.12a3 3 0 1 1-4.24-4.24"/><path d="M1 1l22 22"/></svg>'
+        : '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8S1 12 1 12z"/><circle cx="12" cy="12" r="3"/></svg>';
+      const copyIcon = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15V5a2 2 0 0 1 2-2h10"/></svg>';
+      const trashIcon = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="13" height="13"><path d="M3 6h18"/><path d="M8 6V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"/><path d="M19 6l-1 14a2 2 0 0 1-2 2H8a2 2 0 0 1-2-2L5 6"/></svg>';
+
+      return '<article class="account-card" data-id="' + a.id + '">' +
+        '<div class="game-icon">' +
+          '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">' +
+            '<rect x="3" y="7" width="18" height="12" rx="3"/>' +
+            '<path d="M8 11v4"/><path d="M6 13h4"/>' +
+            '<circle cx="16" cy="12" r="1"/><circle cx="18" cy="14" r="1"/>' +
+          '</svg>' +
+        '</div>' +
+        '<div>' +
+          '<div class="account-name">' + escapeHtml(a.name || a.login) + '</div>' +
+          '<div class="account-meta">' +
+            '<img src="' + flagUrl(a.region, 40) + '" alt="' + a.region.toUpperCase() + '">' +
+            '<span>' + escapeHtml(regionName(a.region)) + '</span>' +
+            '<span>·</span><span>' + labelFor(a.category) + '</span>' +
+            '<span>·</span><span>' + new Date(a.createdAt).toLocaleDateString() + '</span>' +
+            (a.note ? '<span>·</span><span>' + escapeHtml(a.note) + '</span>' : '') +
+          '</div>' +
+          '<div class="account-creds">' +
+            '<div class="cred-row">' +
+              '<span class="cred-label">Login</span>' +
+              '<span class="cred-value">' + escapeHtml(a.login) + '</span>' +
+              '<div class="cred-actions">' +
+                '<button class="cred-btn" data-act="copy-login" title="Copy login" type="button">' + copyIcon + '</button>' +
+              '</div>' +
+            '</div>' +
+            '<div class="cred-row">' +
+              '<span class="cred-label">Password</span>' +
+              '<span class="' + passClass + '">' + passDisplay + '</span>' +
+              '<div class="cred-actions">' +
+                '<button class="cred-btn" data-act="toggle-pass" title="Show / hide password" type="button">' + eyeIcon + '</button>' +
+                '<button class="cred-btn" data-act="copy-pass" title="Copy password" type="button">' + copyIcon + '</button>' +
+              '</div>' +
+            '</div>' +
+          '</div>' +
+        '</div>' +
+        '<div class="account-actions">' +
+          '<button class="small-btn delete" data-act="delete" type="button">' + trashIcon + ' Delete</button>' +
+        '</div>' +
+      '</article>';
+    }).join('');
+  }
+
+  function renderStats(){
+    const total = state.accounts.length;
+    const inCat = state.accounts.filter(a => a.category === state.category).length;
+    const startOfDay = new Date(); startOfDay.setHours(0,0,0,0);
+    const todayCount = state.accounts.filter(a => new Date(a.createdAt) >= startOfDay).length;
+    $('statTotal').textContent = total;
+    $('statCategory').textContent = inCat;
+    $('statToday').textContent = todayCount;
+    formHint.textContent = 'Adding to ' + labelFor(state.category);
+  }
+
+  function renderAll(){
+    renderCategories();
+    renderFlags();
+    renderAccounts();
+    renderStats();
+  }
+
+  categoryListEl.addEventListener('click', function(e){
+    const btn = e.target.closest('[data-cat]');
+    if (!btn) return;
+    state.category = btn.dataset.cat;
+    renderAll();
+  });
+
+  flagsEl.addEventListener('click', function(e){
+    if (e.target.closest('[data-toggle-flags]')){
+      state.flagsExpanded = !state.flagsExpanded;
+      renderFlags();
+      return;
+    }
+    const btn = e.target.closest('[data-region]');
+    if (!btn) return;
+    state.region = btn.dataset.region;
+    renderFlags();
+  });
+
+  searchInput.addEventListener('input', function(){
+    state.search = searchInput.value;
+    renderAccounts();
+  });
+
+  form.addEventListener('submit', function(e){
+    e.preventDefault();
+    const login = $('accLogin').value.trim();
+    const password = $('accPass').value;
+    const name = $('accName').value.trim();
+    const note = $('accNote').value.trim();
+
+    if (!login || !password){
+      showToast('Login and password are required');
+      return;
+    }
+
+    state.accounts.unshift({
+      id: Date.now().toString(36) + Math.random().toString(36).slice(2, 8),
+      name: name,
+      login: login,
+      password: password,
+      note: note,
+      region: state.region,
+      category: state.category,
+      createdAt: Date.now()
+    });
+    save();
+    form.reset();
+    state.region = 'us';
+    state.flagsExpanded = false;
+    renderAll();
+    showToast('Account saved');
+  });
+
+  $('clearBtn').addEventListener('click', function(){
+    form.reset();
+    state.region = 'us';
+    state.flagsExpanded = false;
+    renderFlags();
+    showToast('Form cleared');
+  });
+
+  accountListEl.addEventListener('click', function(e){
+    const card = e.target.closest('.account-card');
+    if (!card) return;
+    const id = card.dataset.id;
+    const acc = state.accounts.find(a => a.id === id);
+    if (!acc) return;
+
+    const act = e.target.closest('[data-act]');
+    if (!act) return;
+    const action = act.dataset.act;
+
+    if (action === 'copy-login'){
+      copy(acc.login, 'Login copied');
+    } else if (action === 'copy-pass'){
+      copy(acc.password, 'Password copied');
+    } else if (action === 'toggle-pass'){
+      if (state.revealed.has(id)) state.revealed.delete(id);
+      else state.revealed.add(id);
+      renderAccounts();
+    } else if (action === 'delete'){
+      if (!window.confirm('Delete this account permanently?')) return;
+      state.accounts = state.accounts.filter(a => a.id !== id);
+      state.revealed.delete(id);
+      save();
+      renderAll();
+      showToast('Account deleted');
+    }
+  });
+
+  document.querySelectorAll('[data-soon]').forEach(function(btn){
+    btn.addEventListener('click', function(){ showToast('Coming soon'); });
+  });
+
+  renderAll();
+})();
+</script>
+</body>
+</html>
