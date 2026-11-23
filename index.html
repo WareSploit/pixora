@@ -18,7 +18,6 @@ header{display:flex;align-items:center;justify-content:space-between;gap:24px;pa
 .brand-title{font:clamp(15px,2vw,21px) var(--pixel);letter-spacing:1px}.brand-sub{font-size:9px;color:var(--muted);letter-spacing:2px;text-transform:uppercase;margin-top:8px}
 nav{display:flex;gap:8px;flex-wrap:wrap}.nav-btn{display:flex;align-items:center;gap:9px;background:#0c0c0c;color:#ddd;border:1px solid var(--line);padding:11px 14px;font-size:12px;font-weight:700}.nav-btn.active,.nav-btn:hover{border-color:#eee;color:#fff;box-shadow:0 0 0 1px #fff2}
 svg.icon{width:18px;height:18px;display:block;flex:none;stroke:currentColor;fill:none;stroke-width:1.9;stroke-linecap:round;stroke-linejoin:round}
-.roblox-logo{width:27px;height:27px;display:block;transform:rotate(15deg)}
 .hero{padding:28px 0 20px;display:grid;grid-template-columns:repeat(3,minmax(0,1fr)) minmax(210px,1fr);gap:12px}
 .stat,.tagline{min-height:78px;border:1px solid var(--line);background:linear-gradient(115deg,#141414,#0b0b0b);display:flex;align-items:center;gap:16px;padding:15px 18px}
 .stat-icon{width:36px;height:36px;color:#fff}.stat strong{display:block;font-size:21px}.stat span{display:block;color:var(--muted);font-size:11px;margin-top:3px}.tagline{justify-content:center;font-size:12px;font-weight:800;letter-spacing:.3px;text-align:center;border:1px dashed #777}
@@ -28,39 +27,34 @@ svg.icon{width:18px;height:18px;display:block;flex:none;stroke:currentColor;fill
 .category-list{display:grid;gap:5px}.category{display:flex;align-items:center;gap:11px;width:100%;padding:11px 10px;background:transparent;border:1px solid transparent;color:#ccc;text-align:left;font-size:12px}.category:hover,.category.active{background:#242424;border-color:#454545;color:#fff}.category .count{margin-left:auto;color:#999;font-size:11px}.cat-icon{width:22px;height:22px;display:grid;place-items:center}
 .sidebar-art{margin-top:18px;min-height:150px;border:1px solid #303030;display:flex;flex-direction:column;justify-content:end;padding:14px;background:radial-gradient(ellipse at 50% 15%,#555 0,#242424 30%,#101010 70%);overflow:hidden;position:relative}
 .pixel-mountain{font:10px var(--pixel);color:#aaa;line-height:2;letter-spacing:2px}.sidebar-art strong{font-size:12px;margin-top:8px}.sidebar-art small{color:#999;font-size:10px}
-.form-panel{padding:18px 20px}.field-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px}.field{display:flex;flex-direction:column;gap:7px;min-width:0}.field label{font-size:10px;color:#aaa;letter-spacing:1.2px;text-transform:uppercase}.field input,.field textarea,.field select,.search{width:100%;background:#090909;border:1px solid #3b3b3b;color:#f4f4f4;padding:12px 13px;outline:none;min-height:44px}.field textarea{resize:vertical;min-height:72px}.field input:focus,.field textarea:focus,.field select:focus,.search:focus{border-color:#ddd}
+.form-panel{padding:18px 20px}.field-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px}.field{display:flex;flex-direction:column;gap:7px;min-width:0}.field label{font-size:10px;color:#aaa;letter-spacing:1.2px;text-transform:uppercase}.field input,.field textarea,.field select,.search{width:100%;background:#090909;border:1px solid #3b3b3b;color:#f4f4f4;padding:12px 13px;outline:none;min-height:44px}.field input:focus,.field textarea:focus,.field select:focus,.search:focus{border-color:#ddd}
 .region-wrap{margin-top:14px}.region-label{font-size:10px;color:#aaa;letter-spacing:1.2px;text-transform:uppercase;margin-bottom:9px}.flags{display:flex;gap:7px;flex-wrap:wrap;align-items:center}.flag-btn{height:43px;min-width:54px;padding:6px 9px;background:#0a0a0a;border:1px solid #343434;display:grid;place-items:center}.flag-btn img{width:29px;height:20px;object-fit:cover}.flag-btn:hover,.flag-btn.selected{border-color:#fff;box-shadow:0 0 0 1px #fff5}.more-region{height:43px;background:#0a0a0a;color:#eee;border:1px solid #343434;padding:0 12px;font-size:11px}.more-region:hover{border-color:#ddd;color:#fff}
 .form-actions{display:flex;gap:10px;margin-top:15px}.primary{flex:1;min-height:46px;border:1px solid #eee;background:#eee;color:#090909;font-weight:800;display:flex;align-items:center;justify-content:center;gap:10px}.primary:hover{background:#ccc}.secondary{min-height:46px;padding:0 15px;border:1px solid #444;background:#151515;color:#ddd}
 .security-list{display:grid;gap:13px}.security-item{display:flex;align-items:center;gap:9px;color:#ccc;font-size:11px}.security-item .icon{width:17px;height:17px}
 .brand-card{margin-top:18px;border:1px dashed #777;padding:13px;display:flex;align-items:center;gap:10px}.brand-card .pixel-crown{font-size:26px}.brand-card strong{font-size:12px}.brand-card small{display:block;color:#999;font-size:10px;margin-top:3px}
-.accounts-panel{margin-top:16px;padding:18px 20px}.accounts-head{display:flex;justify-content:space-between;align-items:center;gap:12px;margin-bottom:14px}.accounts-head .panel-title{margin:0}.search{max-width:280px;min-height:39px;padding:9px 12px;font-size:11px}
+.accounts-panel{margin-top:16px;padding:18px 20px}.accounts-head{display:flex;justify-content:space-between;align-items:center;gap:12px;margin-bottom:14px;flex-wrap:wrap}.accounts-head .panel-title{margin:0}.accounts-head .head-actions{display:flex;gap:8px;align-items:center;flex-wrap:wrap}.search{max-width:280px;min-height:39px;padding:9px 12px;font-size:11px}
+.icon-action{width:39px;height:39px;display:grid;place-items:center;background:#0a0a0a;border:1px solid #383838;color:#ccc;padding:0}
+.icon-action:hover{border-color:#eee;color:#fff;background:#161616}
+.icon-action svg{width:16px;height:16px}
 .account-list{display:grid;gap:9px}.account-card{display:grid;grid-template-columns:48px minmax(0,1fr) auto;gap:13px;align-items:center;border:1px solid #303030;background:#0b0b0b;padding:12px}.game-icon{width:44px;height:44px;background:#eee;color:#090909;display:grid;place-items:center}.game-icon svg{width:25px;height:25px}.account-name{font-size:13px;font-weight:800}.account-meta{display:flex;align-items:center;gap:7px;flex-wrap:wrap;color:#999;font-size:10px;margin-top:5px}.account-meta img{width:19px;height:13px;object-fit:cover;border:1px solid #444}.account-actions{display:flex;gap:6px;flex-wrap:wrap;justify-content:end}.small-btn{display:flex;align-items:center;gap:6px;padding:8px 9px;background:#111;border:1px solid #383838;color:#ccc;font-size:10px}.small-btn:hover{border-color:#aaa;color:#fff}.small-btn.delete:hover{border-color:#d66;color:#f99}
 .empty{border:1px dashed #3a3a3a;padding:30px;text-align:center;color:#999;font-size:12px}.empty b{display:block;color:#eee;margin-bottom:7px}
-footer{color:#777;font-size:10px;line-height:1.7;margin-top:17px}.toast{position:fixed;bottom:22px;left:50%;transform:translate(-50%,20px);opacity:0;pointer-events:none;background:#eee;color:#090909;padding:11px 16px;font-size:12px;font-weight:800;transition:.2s;z-index:9}.toast.show{opacity:1;transform:translate(-50%,0)}
+footer{color:#777;font-size:10px;line-height:1.7;margin-top:17px;display:flex;justify-content:space-between;flex-wrap:wrap;gap:8px}
+.storage-badge{padding:3px 8px;border:1px solid #333;font-size:9px;letter-spacing:1px;text-transform:uppercase}
+.storage-badge.ok{color:#8f8;border-color:#2a5a2a;background:#0f1a0f}
+.storage-badge.warn{color:#fb7;border-color:#5a3a1a;background:#1a120a}
+.storage-badge.bad{color:#f88;border-color:#5a2020;background:#1a0a0a}
+.storage-warning{background:linear-gradient(90deg,#3a1414,#2a0f0f);border:1px solid #a33;color:#fcc;padding:12px 16px;font-size:12px;line-height:1.5;margin-bottom:16px;display:flex;align-items:center;gap:12px}
+.storage-warning strong{color:#f88}
+.toast{position:fixed;bottom:22px;left:50%;transform:translate(-50%,20px);opacity:0;pointer-events:none;background:#eee;color:#090909;padding:11px 16px;font-size:12px;font-weight:800;transition:.2s;z-index:9;max-width:90vw}
+.toast.error{background:#f88;color:#1a0a0a}
+.toast.show{opacity:1;transform:translate(-50%,0)}
 @media(max-width:1050px){.layout{grid-template-columns:210px minmax(0,1fr)}.right-sidebar{grid-column:1/-1;display:grid;grid-template-columns:1fr 1fr;gap:14px}.right-sidebar .panel{margin:0}.hero{grid-template-columns:repeat(3,1fr)}.tagline{grid-column:1/-1;min-height:48px}}
-@media(max-width:700px){.app{width:calc(100% - 24px);padding-top:14px}header{align-items:flex-start;flex-direction:column}.hero{grid-template-columns:1fr 1fr;padding-top:18px}.stat{padding:12px}.layout{grid-template-columns:1fr}.left-sidebar{order:2}.main-column{order:1}.right-sidebar{order:3;grid-template-columns:1fr}.sidebar-art{min-height:100px}.field-grid{grid-template-columns:1fr}.accounts-head{align-items:stretch;flex-direction:column}.search{max-width:none}.account-card{grid-template-columns:42px 1fr}.game-icon{width:40px;height:40px}.account-actions{grid-column:1/-1;justify-content:flex-start}.nav-btn{padding:9px 11px}}
+@media(max-width:700px){.app{width:calc(100% - 24px);padding-top:14px}header{align-items:flex-start;flex-direction:column}.hero{grid-template-columns:1fr 1fr;padding-top:18px}.stat{padding:12px}.layout{grid-template-columns:1fr}.left-sidebar{order:2}.main-column{order:1}.right-sidebar{order:3;grid-template-columns:1fr}.sidebar-art{min-height:100px}.field-grid{grid-template-columns:1fr}.accounts-head{align-items:stretch;flex-direction:column}.accounts-head .head-actions{width:100%}.search{max-width:none;flex:1}.account-card{grid-template-columns:42px 1fr}.game-icon{width:40px;height:40px}.account-actions{grid-column:1/-1;justify-content:flex-start}.nav-btn{padding:9px 11px}}
 @media(max-width:420px){.brand-title{font-size:13px}.hero{gap:7px}.stat{gap:9px;padding:10px}.stat-icon{width:26px;height:26px}.stat strong{font-size:17px}.stat span{font-size:9px}.tagline{font-size:10px}.panel{padding:14px}.form-panel,.accounts-panel{padding:14px}.flag-btn{min-width:47px}.account-card{gap:9px}}
 
-/* ─── Hero art (pixel banner restored) ─── */
-.hero-art{
-  position:relative;
-  min-height:230px;
-  margin:22px 0 18px;
-  overflow:hidden;
-  border:1px solid #555;
-  background:#090909;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-}
-.hero-art svg{
-  width:100%;
-  height:100%;
-  display:block;
-  image-rendering:pixelated;
-}
+.hero-art{position:relative;min-height:230px;margin:22px 0 18px;overflow:hidden;border:1px solid #555;background:#090909;display:flex;align-items:center;justify-content:center}
+.hero-art svg{width:100%;height:100%;display:block;image-rendering:pixelated}
 
-/* ─── Added styles ─── */
 .form-hint{font-size:11px;color:#999;margin:-10px 0 14px;letter-spacing:.3px}
 .category-desc{display:block;color:#777;font-size:10px;margin-top:2px}
 .account-creds{display:grid;gap:5px;margin-top:9px}
@@ -78,6 +72,16 @@ footer{color:#777;font-size:10px;line-height:1.7;margin-top:17px}.toast{position
 </head>
 <body>
 <div class="app">
+  <div class="storage-warning" id="storageWarning" hidden>
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="width:20px;height:20px;flex-shrink:0"><path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
+    <div>
+      <strong>Storage unavailable.</strong>
+      Browsers block permanent storage on <code>file://</code> pages and in private mode.
+      Accounts may not survive a refresh — use <strong>Export ↓</strong> to save a backup file.
+      For 100% reliable saving, run this page through a local server (<code>python -m http.server</code>).
+    </div>
+  </div>
+
   <header>
     <a class="brand" href="#">
       <span class="brand-symbol">P</span>
@@ -118,57 +122,18 @@ footer{color:#777;font-size:10px;line-height:1.7;margin-top:17px}.toast{position
     <div class="tagline">Curated Roblox accounts, sorted by age tier — stored locally in your browser</div>
   </section>
 
-  <!-- restored pixel banner -->
   <div class="hero-art" aria-hidden="true">
     <svg viewBox="0 0 800 230" preserveAspectRatio="xMidYMid slice" shape-rendering="crispEdges" xmlns="http://www.w3.org/2000/svg">
       <rect width="800" height="230" fill="#0a0a14"/>
-      <!-- stars -->
       <g fill="#ffffff" opacity="0.85">
-        <rect x="60" y="34" width="2" height="2"/>
-        <rect x="120" y="70" width="2" height="2"/>
-        <rect x="210" y="40" width="2" height="2"/>
-        <rect x="300" y="60" width="2" height="2"/>
-        <rect x="390" y="30" width="2" height="2"/>
-        <rect x="470" y="66" width="2" height="2"/>
-        <rect x="560" y="38" width="2" height="2"/>
-        <rect x="690" y="56" width="2" height="2"/>
-        <rect x="760" y="28" width="2" height="2"/>
-        <rect x="100" y="120" width="2" height="2"/>
-        <rect x="340" y="112" width="2" height="2"/>
-        <rect x="520" y="130" width="2" height="2"/>
-        <rect x="620" y="100" width="2" height="2"/>
+        <rect x="60" y="34" width="2" height="2"/><rect x="120" y="70" width="2" height="2"/><rect x="210" y="40" width="2" height="2"/><rect x="300" y="60" width="2" height="2"/><rect x="390" y="30" width="2" height="2"/><rect x="470" y="66" width="2" height="2"/><rect x="560" y="38" width="2" height="2"/><rect x="690" y="56" width="2" height="2"/><rect x="760" y="28" width="2" height="2"/><rect x="100" y="120" width="2" height="2"/><rect x="340" y="112" width="2" height="2"/><rect x="520" y="130" width="2" height="2"/><rect x="620" y="100" width="2" height="2"/>
       </g>
-      <!-- pixel moon -->
-      <g fill="#cfcfd8">
-        <rect x="646" y="38" width="16" height="8"/>
-        <rect x="642" y="46" width="24" height="8"/>
-        <rect x="646" y="54" width="16" height="8"/>
-      </g>
-      <!-- back mountains -->
+      <g fill="#cfcfd8"><rect x="646" y="38" width="16" height="8"/><rect x="642" y="46" width="24" height="8"/><rect x="646" y="54" width="16" height="8"/></g>
       <path d="M0,200 L100,120 L140,120 L180,160 L240,100 L300,140 L360,80 L420,140 L480,100 L540,160 L600,120 L660,160 L720,110 L800,160 L800,230 L0,230 Z" fill="#1a1a2a"/>
-      <!-- mid mountains -->
       <path d="M0,210 L80,150 L140,180 L200,130 L260,170 L320,120 L380,170 L440,130 L500,180 L560,140 L620,180 L700,130 L800,190 L800,230 L0,230 Z" fill="#242436"/>
-      <!-- front mountains -->
       <path d="M0,220 L120,170 L200,200 L280,160 L360,200 L440,170 L520,205 L600,175 L680,205 L760,180 L800,200 L800,230 L0,230 Z" fill="#2f2f46"/>
-      <!-- grid floor -->
-      <g stroke="#ffffff" stroke-opacity="0.08">
-        <line x1="0" y1="222" x2="800" y2="222"/>
-        <line x1="0" y1="226" x2="800" y2="226"/>
-        <line x1="200" y1="214" x2="200" y2="230"/>
-        <line x1="400" y1="214" x2="400" y2="230"/>
-        <line x1="600" y1="214" x2="600" y2="230"/>
-      </g>
-      <!-- foreground pixel trees -->
-      <g fill="#0d0d18">
-        <rect x="90" y="196" width="8" height="22"/>
-        <rect x="82" y="188" width="24" height="10"/>
-        <rect x="86" y="180" width="16" height="10"/>
-        <rect x="90" y="172" width="8" height="10"/>
-        <rect x="700" y="190" width="8" height="26"/>
-        <rect x="692" y="182" width="24" height="10"/>
-        <rect x="696" y="174" width="16" height="10"/>
-        <rect x="700" y="166" width="8" height="10"/>
-      </g>
+      <g stroke="#ffffff" stroke-opacity="0.08"><line x1="0" y1="222" x2="800" y2="222"/><line x1="0" y1="226" x2="800" y2="226"/><line x1="200" y1="214" x2="200" y2="230"/><line x1="400" y1="214" x2="400" y2="230"/><line x1="600" y1="214" x2="600" y2="230"/></g>
+      <g fill="#0d0d18"><rect x="90" y="196" width="8" height="22"/><rect x="82" y="188" width="24" height="10"/><rect x="86" y="180" width="16" height="10"/><rect x="90" y="172" width="8" height="10"/><rect x="700" y="190" width="8" height="26"/><rect x="692" y="182" width="24" height="10"/><rect x="696" y="174" width="16" height="10"/><rect x="700" y="166" width="8" height="10"/></g>
     </svg>
   </div>
 
@@ -195,29 +160,15 @@ footer{color:#777;font-size:10px;line-height:1.7;margin-top:17px}.toast{position
         <div class="form-hint" id="formCategoryLabel">Adding to 12-15+</div>
         <form id="accountForm" autocomplete="off">
           <div class="field-grid">
-            <div class="field">
-              <label for="accLogin">Login</label>
-              <input id="accLogin" type="text" placeholder="Username or email" required>
-            </div>
-            <div class="field">
-              <label for="accPass">Password</label>
-              <input id="accPass" type="text" placeholder="Account password" required>
-            </div>
-            <div class="field">
-              <label for="accName">Account name (optional)</label>
-              <input id="accName" type="text" placeholder="e.g. PixelFox">
-            </div>
-            <div class="field">
-              <label for="accNote">Note (optional)</label>
-              <input id="accNote" type="text" placeholder="Anything to remember">
-            </div>
+            <div class="field"><label for="accLogin">Login</label><input id="accLogin" type="text" placeholder="Username or email" required></div>
+            <div class="field"><label for="accPass">Password</label><input id="accPass" type="text" placeholder="Account password" required></div>
+            <div class="field"><label for="accName">Account name (optional)</label><input id="accName" type="text" placeholder="e.g. PixelFox"></div>
+            <div class="field"><label for="accNote">Note (optional)</label><input id="accNote" type="text" placeholder="Anything to remember"></div>
           </div>
-
           <div class="region-wrap">
             <div class="region-label">Region</div>
             <div class="flags" id="flags"></div>
           </div>
-
           <div class="form-actions">
             <button type="submit" class="primary">
               <svg class="icon" viewBox="0 0 24 24"><path d="M12 5v14"/><path d="M5 12h14"/></svg>
@@ -234,7 +185,16 @@ footer{color:#777;font-size:10px;line-height:1.7;margin-top:17px}.toast{position
             <svg class="icon" viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
             Accounts
           </h2>
-          <input class="search" id="searchInput" type="text" placeholder="Search login, name, note, region...">
+          <div class="head-actions">
+            <input class="search" id="searchInput" type="text" placeholder="Search login, name, note, region...">
+            <button class="icon-action" id="exportBtn" type="button" title="Export to JSON file">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+            </button>
+            <button class="icon-action" id="importBtn" type="button" title="Import from JSON file">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="17 8 12 3 7 8"/><line x1="12" y1="3" x2="12" y2="15"/></svg>
+            </button>
+            <input type="file" id="importFile" accept="application/json,.json" hidden>
+          </div>
         </div>
         <div class="account-list" id="accountList"></div>
       </section>
@@ -261,16 +221,14 @@ footer{color:#777;font-size:10px;line-height:1.7;margin-top:17px}.toast{position
       </div>
       <div class="brand-card">
         <div class="pixel-crown">♛</div>
-        <div>
-          <strong>PIXORA vault</strong>
-          <small>Roblox account library</small>
-        </div>
+        <div><strong>PIXORA vault</strong><small>Roblox account library</small></div>
       </div>
     </aside>
   </div>
 
   <footer>
-    PIXORA — Roblox account library. Data is kept in your browser only. Use responsibly.
+    <span>PIXORA — Roblox account library. Use responsibly.</span>
+    <span class="storage-badge" id="storageBadge">storage: checking…</span>
   </footer>
 </div>
 <div class="toast" id="toast">Saved</div>
@@ -280,60 +238,86 @@ footer{color:#777;font-size:10px;line-height:1.7;margin-top:17px}.toast{position
   'use strict';
 
   const STORAGE_KEY = 'pixora-accounts-v1';
+  const COOKIE_MAX = 3800;
 
+  /* ─── Storage detection ─── */
+  function detectStorage(){
+    let ls = false, ck = false;
+    try {
+      localStorage.setItem('__pixora_test', '1');
+      localStorage.removeItem('__pixora_test');
+      ls = true;
+    } catch(e){ ls = false; }
+    try {
+      document.cookie = '__pixora_test=1; path=/; max-age=5';
+      ck = document.cookie.indexOf('__pixora_test=1') !== -1;
+      document.cookie = '__pixora_test=; path=/; max-age=0';
+    } catch(e){ ck = false; }
+    return {ls: ls, cookie: ck};
+  }
+  const storageState = detectStorage();
+
+  /* ─── Load / Save with multi-layer fallback ─── */
+  function loadFromCookie(){
+    try {
+      const m = document.cookie.match(new RegExp('(?:^|; )' + STORAGE_KEY + '=([^;]*)'));
+      if (!m) return [];
+      return JSON.parse(decodeURIComponent(m[1])) || [];
+    } catch(e){ return []; }
+  }
+
+  function load(){
+    let data = [];
+    if (storageState.ls){
+      try { data = JSON.parse(localStorage.getItem(STORAGE_KEY)) || []; }
+      catch(e){ data = []; }
+    }
+    if (!data.length){
+      const fromCookie = loadFromCookie();
+      if (fromCookie.length) data = fromCookie;
+    }
+    return data;
+  }
+
+  function save(){
+    const json = JSON.stringify(state.accounts);
+    let okLS = false, okCookie = false;
+    if (storageState.ls){
+      try { localStorage.setItem(STORAGE_KEY, json); okLS = true; }
+      catch(e){ okLS = false; }
+    }
+    if (json.length < COOKIE_MAX){
+      try {
+        document.cookie = STORAGE_KEY + '=' + encodeURIComponent(json) + '; path=/; max-age=31536000; SameSite=Lax';
+        okCookie = true;
+      } catch(e){ okCookie = false; }
+    }
+    return {ls: okLS, cookie: okCookie};
+  }
+
+  /* ─── State ─── */
   const REGIONS = [
-    {code:'us', name:'United States'},
-    {code:'gb', name:'United Kingdom'},
-    {code:'de', name:'Germany'},
-    {code:'fr', name:'France'},
-    {code:'nl', name:'Netherlands'},
-    {code:'pl', name:'Poland'},
-    {code:'ru', name:'Russia'},
-    {code:'ua', name:'Ukraine'},
-    {code:'tr', name:'Turkey'},
-    {code:'br', name:'Brazil'},
-    {code:'in', name:'India'},
-    {code:'ph', name:'Philippines'},
-    {code:'id', name:'Indonesia'},
-    {code:'vn', name:'Vietnam'},
-    {code:'th', name:'Thailand'},
-    {code:'jp', name:'Japan'},
-    {code:'kr', name:'South Korea'},
-    {code:'au', name:'Australia'},
-    {code:'ca', name:'Canada'},
-    {code:'mx', name:'Mexico'},
-    {code:'ar', name:'Argentina'},
-    {code:'es', name:'Spain'},
-    {code:'it', name:'Italy'},
-    {code:'se', name:'Sweden'},
-    {code:'no', name:'Norway'},
-    {code:'fi', name:'Finland'},
-    {code:'dk', name:'Denmark'},
-    {code:'cz', name:'Czechia'},
-    {code:'ro', name:'Romania'},
-    {code:'sa', name:'Saudi Arabia'},
-    {code:'ae', name:'UAE'},
-    {code:'za', name:'South Africa'},
-    {code:'nz', name:'New Zealand'},
-    {code:'pt', name:'Portugal'},
-    {code:'gr', name:'Greece'},
-    {code:'be', name:'Belgium'},
-    {code:'ch', name:'Switzerland'},
-    {code:'at', name:'Austria'},
-    {code:'hu', name:'Hungary'},
-    {code:'bg', name:'Bulgaria'},
-    {code:'cn', name:'China'},
-    {code:'hk', name:'Hong Kong'},
-    {code:'sg', name:'Singapore'},
-    {code:'my', name:'Malaysia'}
+    {code:'us', name:'United States'},{code:'gb', name:'United Kingdom'},{code:'de', name:'Germany'},
+    {code:'fr', name:'France'},{code:'nl', name:'Netherlands'},{code:'pl', name:'Poland'},
+    {code:'ru', name:'Russia'},{code:'ua', name:'Ukraine'},{code:'tr', name:'Turkey'},
+    {code:'br', name:'Brazil'},{code:'in', name:'India'},{code:'ph', name:'Philippines'},
+    {code:'id', name:'Indonesia'},{code:'vn', name:'Vietnam'},{code:'th', name:'Thailand'},
+    {code:'jp', name:'Japan'},{code:'kr', name:'South Korea'},{code:'au', name:'Australia'},
+    {code:'ca', name:'Canada'},{code:'mx', name:'Mexico'},{code:'ar', name:'Argentina'},
+    {code:'es', name:'Spain'},{code:'it', name:'Italy'},{code:'se', name:'Sweden'},
+    {code:'no', name:'Norway'},{code:'fi', name:'Finland'},{code:'dk', name:'Denmark'},
+    {code:'cz', name:'Czechia'},{code:'ro', name:'Romania'},{code:'sa', name:'Saudi Arabia'},
+    {code:'ae', name:'UAE'},{code:'za', name:'South Africa'},{code:'nz', name:'New Zealand'},
+    {code:'pt', name:'Portugal'},{code:'gr', name:'Greece'},{code:'be', name:'Belgium'},
+    {code:'ch', name:'Switzerland'},{code:'at', name:'Austria'},{code:'hu', name:'Hungary'},
+    {code:'bg', name:'Bulgaria'},{code:'cn', name:'China'},{code:'hk', name:'Hong Kong'},
+    {code:'sg', name:'Singapore'},{code:'my', name:'Malaysia'}
   ];
 
-  /* 12-15+ and 21+ (18 replaced by 21+) */
   const CATEGORIES = [
     {id:'12-15', label:'12-15+', hint:'Teen tier'},
     {id:'21',    label:'21+',    hint:'Adult tier'}
   ];
-
   const VISIBLE_FLAGS = 7;
 
   const state = {
@@ -353,75 +337,62 @@ footer{color:#777;font-size:10px;line-height:1.7;margin-top:17px}.toast{position
   const form           = $('accountForm');
   const toastEl        = $('toast');
   const formHint       = $('formCategoryLabel');
+  const exportBtn      = $('exportBtn');
+  const importBtn      = $('importBtn');
+  const importFile     = $('importFile');
 
-  function load(){
-    try { return JSON.parse(localStorage.getItem(STORAGE_KEY)) || []; }
-    catch(e){ return []; }
-  }
-  function save(){
-    try { localStorage.setItem(STORAGE_KEY, JSON.stringify(state.accounts)); }
-    catch(e){}
-  }
-
+  /* ─── Normalizers ─── */
   function escapeHtml(s){
-    return String(s).replace(/[&<>"']/g, c => ({
-      '&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'
-    }[c]));
+    return String(s).replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
   }
-  function flagUrl(code, size){
-    return 'https://flagcdn.com/w' + (size || 40) + '/' + code + '.png';
+  function flagUrl(code, size){ return 'https://flagcdn.com/w' + (size||40) + '/' + code + '.png'; }
+  function regionName(code){ const r = REGIONS.find(x => x.code === code); return r ? r.name : String(code).toUpperCase(); }
+  function labelFor(id){ const c = CATEGORIES.find(x => x.id === id); return c ? c.label : id; }
+  function normalizeCategory(cat){
+    if (cat === '16-18' || cat === '18' || cat === '18+' || cat === '16-18+') return '21';
+    return cat;
   }
-  function regionName(code){
-    const r = REGIONS.find(x => x.code === code);
-    return r ? r.name : String(code).toUpperCase();
-  }
-  function labelFor(id){
-    const c = CATEGORIES.find(x => x.id === id);
-    return c ? c.label : id;
-  }
-  function showToast(msg){
+
+  /* ─── Toast ─── */
+  function showToast(msg, isError){
     toastEl.textContent = msg;
+    toastEl.classList.toggle('error', !!isError);
     toastEl.classList.add('show');
     clearTimeout(showToast._t);
-    showToast._t = setTimeout(() => toastEl.classList.remove('show'), 1800);
+    showToast._t = setTimeout(() => toastEl.classList.remove('show'), 2400);
   }
+
+  /* ─── Copy ─── */
   function copy(text, okMsg){
     if (navigator.clipboard && navigator.clipboard.writeText){
       navigator.clipboard.writeText(text)
         .then(() => showToast(okMsg || 'Copied'))
         .catch(() => fallbackCopy(text, okMsg));
-    } else {
-      fallbackCopy(text, okMsg);
-    }
+    } else fallbackCopy(text, okMsg);
   }
   function fallbackCopy(text, okMsg){
     const ta = document.createElement('textarea');
-    ta.value = text;
-    ta.style.position = 'fixed';
-    ta.style.opacity = '0';
-    document.body.appendChild(ta);
-    ta.select();
+    ta.value = text; ta.style.position = 'fixed'; ta.style.opacity = '0';
+    document.body.appendChild(ta); ta.select();
     try { document.execCommand('copy'); showToast(okMsg || 'Copied'); }
-    catch(e){ showToast('Copy failed'); }
+    catch(e){ showToast('Copy failed', true); }
     ta.remove();
   }
 
+  /* ─── Icons ─── */
   function catIcon(id){
-    if (id === '21'){
-      return '<svg class="icon" viewBox="0 0 24 24"><path d="M3 17l3-9 4 4 2-6 2 6 4-4 3 9z"/><path d="M3 20h18"/></svg>';
-    }
+    if (id === '21') return '<svg class="icon" viewBox="0 0 24 24"><path d="M3 17l3-9 4 4 2-6 2 6 4-4 3 9z"/><path d="M3 20h18"/></svg>';
     return '<svg class="icon" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M8 14s1.5 2 4 2 4-2 4-2"/><path d="M9 9h.01"/><path d="M15 9h.01"/></svg>';
   }
 
+  /* ─── Render ─── */
   function renderCategories(){
     categoryListEl.innerHTML = CATEGORIES.map(cat => {
       const count = state.accounts.filter(a => a.category === cat.id).length;
       const active = cat.id === state.category ? ' active' : '';
       return '<button class="category' + active + '" data-cat="' + cat.id + '" type="button">' +
                '<span class="cat-icon">' + catIcon(cat.id) + '</span>' +
-               '<span>' + cat.label +
-                 '<span class="category-desc">' + cat.hint + '</span>' +
-               '</span>' +
+               '<span>' + cat.label + '<span class="category-desc">' + cat.hint + '</span></span>' +
                '<span class="count">' + count + '</span>' +
              '</button>';
     }).join('');
@@ -435,9 +406,8 @@ footer{color:#777;font-size:10px;line-height:1.7;margin-top:17px}.toast{position
                '<img src="' + flagUrl(r.code, 40) + '" alt="' + r.code.toUpperCase() + '" loading="lazy">' +
              '</button>';
     }).join('');
-    const remaining = REGIONS.length - VISIBLE_FLAGS;
     const more = '<button class="more-region" type="button" data-toggle-flags>' +
-                 (state.flagsExpanded ? 'Less' : '+' + remaining + ' more') +
+                 (state.flagsExpanded ? 'Less' : '+' + (REGIONS.length - VISIBLE_FLAGS) + ' more') +
                  '</button>';
     flagsEl.innerHTML = items + more;
   }
@@ -448,8 +418,7 @@ footer{color:#777;font-size:10px;line-height:1.7;margin-top:17px}.toast{position
       .filter(a => a.category === state.category)
       .filter(a => {
         if (!q) return true;
-        const hay = [a.name, a.login, a.note, a.region].join(' ').toLowerCase();
-        return hay.indexOf(q) !== -1;
+        return [a.name, a.login, a.note, a.region].join(' ').toLowerCase().indexOf(q) !== -1;
       })
       .sort((a, b) => b.createdAt - a.createdAt);
   }
@@ -457,13 +426,9 @@ footer{color:#777;font-size:10px;line-height:1.7;margin-top:17px}.toast{position
   function renderAccounts(){
     const items = visibleAccounts();
     if (!items.length){
-      accountListEl.innerHTML =
-        '<div class="empty"><b>No accounts yet</b>' +
-        'Use the form on the left to add your first account in this category.' +
-        '</div>';
+      accountListEl.innerHTML = '<div class="empty"><b>No accounts yet</b>Use the form on the left to add your first account in this category.</div>';
       return;
     }
-
     accountListEl.innerHTML = items.map(a => {
       const revealed = state.revealed.has(a.id);
       const masked = '•'.repeat(Math.min(12, Math.max(6, a.password.length)));
@@ -476,13 +441,7 @@ footer{color:#777;font-size:10px;line-height:1.7;margin-top:17px}.toast{position
       const trashIcon = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="13" height="13"><path d="M3 6h18"/><path d="M8 6V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"/><path d="M19 6l-1 14a2 2 0 0 1-2 2H8a2 2 0 0 1-2-2L5 6"/></svg>';
 
       return '<article class="account-card" data-id="' + a.id + '">' +
-        '<div class="game-icon">' +
-          '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">' +
-            '<rect x="3" y="7" width="18" height="12" rx="3"/>' +
-            '<path d="M8 11v4"/><path d="M6 13h4"/>' +
-            '<circle cx="16" cy="12" r="1"/><circle cx="18" cy="14" r="1"/>' +
-          '</svg>' +
-        '</div>' +
+        '<div class="game-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="7" width="18" height="12" rx="3"/><path d="M8 11v4"/><path d="M6 13h4"/><circle cx="16" cy="12" r="1"/><circle cx="18" cy="14" r="1"/></svg></div>' +
         '<div>' +
           '<div class="account-name">' + escapeHtml(a.name || a.login) + '</div>' +
           '<div class="account-meta">' +
@@ -496,9 +455,7 @@ footer{color:#777;font-size:10px;line-height:1.7;margin-top:17px}.toast{position
             '<div class="cred-row">' +
               '<span class="cred-label">Login</span>' +
               '<span class="cred-value">' + escapeHtml(a.login) + '</span>' +
-              '<div class="cred-actions">' +
-                '<button class="cred-btn" data-act="copy-login" title="Copy login" type="button">' + copyIcon + '</button>' +
-              '</div>' +
+              '<div class="cred-actions"><button class="cred-btn" data-act="copy-login" title="Copy login" type="button">' + copyIcon + '</button></div>' +
             '</div>' +
             '<div class="cred-row">' +
               '<span class="cred-label">Password</span>' +
@@ -510,9 +467,7 @@ footer{color:#777;font-size:10px;line-height:1.7;margin-top:17px}.toast{position
             '</div>' +
           '</div>' +
         '</div>' +
-        '<div class="account-actions">' +
-          '<button class="small-btn delete" data-act="delete" type="button">' + trashIcon + ' Delete</button>' +
-        '</div>' +
+        '<div class="account-actions"><button class="small-btn delete" data-act="delete" type="button">' + trashIcon + ' Delete</button></div>' +
       '</article>';
     }).join('');
   }
@@ -528,13 +483,33 @@ footer{color:#777;font-size:10px;line-height:1.7;margin-top:17px}.toast{position
     formHint.textContent = 'Adding to ' + labelFor(state.category);
   }
 
+  function renderStorageBadge(){
+    const badge = $('storageBadge');
+    const warn = $('storageWarning');
+    if (storageState.ls && storageState.cookie){
+      badge.textContent = 'storage: OK';
+      badge.className = 'storage-badge ok';
+      warn.hidden = true;
+    } else if (storageState.ls || storageState.cookie){
+      badge.textContent = 'storage: fallback';
+      badge.className = 'storage-badge warn';
+      warn.hidden = false;
+    } else {
+      badge.textContent = 'storage: blocked';
+      badge.className = 'storage-badge bad';
+      warn.hidden = false;
+    }
+  }
+
   function renderAll(){
     renderCategories();
     renderFlags();
     renderAccounts();
     renderStats();
+    renderStorageBadge();
   }
 
+  /* ─── Events ─── */
   categoryListEl.addEventListener('click', function(e){
     const btn = e.target.closest('[data-cat]');
     if (!btn) return;
@@ -567,7 +542,7 @@ footer{color:#777;font-size:10px;line-height:1.7;margin-top:17px}.toast{position
     const note = $('accNote').value.trim();
 
     if (!login || !password){
-      showToast('Login and password are required');
+      showToast('Login and password are required', true);
       return;
     }
 
@@ -581,12 +556,18 @@ footer{color:#777;font-size:10px;line-height:1.7;margin-top:17px}.toast{position
       category: state.category,
       createdAt: Date.now()
     });
-    save();
+
+    const saved = save();
     form.reset();
     state.region = 'us';
     state.flagsExpanded = false;
     renderAll();
-    showToast('Account saved');
+
+    if (saved.ls || saved.cookie){
+      showToast('Account saved (' + state.accounts.length + ' total)');
+    } else {
+      showToast('SAVE FAILED — export to keep data', true);
+    }
   });
 
   $('clearBtn').addEventListener('click', function(){
@@ -603,7 +584,6 @@ footer{color:#777;font-size:10px;line-height:1.7;margin-top:17px}.toast{position
     const id = card.dataset.id;
     const acc = state.accounts.find(a => a.id === id);
     if (!acc) return;
-
     const act = e.target.closest('[data-act]');
     if (!act) return;
     const action = act.dataset.act;
@@ -620,17 +600,80 @@ footer{color:#777;font-size:10px;line-height:1.7;margin-top:17px}.toast{position
       if (!window.confirm('Delete this account permanently?')) return;
       state.accounts = state.accounts.filter(a => a.id !== id);
       state.revealed.delete(id);
-      save();
+      const saved = save();
       renderAll();
-      showToast('Account deleted');
+      showToast(saved.ls || saved.cookie ? 'Account deleted' : 'Deleted (not saved!)', !saved.ls && !saved.cookie);
     }
   });
 
+  /* ─── Export / Import ─── */
+  exportBtn.addEventListener('click', function(){
+    if (!state.accounts.length){
+      showToast('Nothing to export', true);
+      return;
+    }
+    const data = JSON.stringify(state.accounts, null, 2);
+    const blob = new Blob([data], {type: 'application/json'});
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement('a');
+    const stamp = new Date().toISOString().slice(0,10);
+    a.href = url;
+    a.download = 'pixora-accounts-' + stamp + '.json';
+    document.body.appendChild(a);
+    a.click();
+    a.remove();
+    URL.revokeObjectURL(url);
+    showToast('Exported ' + state.accounts.length + ' accounts');
+  });
+
+  importBtn.addEventListener('click', function(){ importFile.click(); });
+
+  importFile.addEventListener('change', function(e){
+    const file = e.target.files && e.target.files[0];
+    if (!file) return;
+    const reader = new FileReader();
+    reader.onload = function(){
+      try {
+        const data = JSON.parse(reader.result);
+        if (!Array.isArray(data)) throw new Error('not array');
+        const valid = data.filter(x => x && x.login && x.password).map(x => ({
+          id: x.id || (Date.now().toString(36) + Math.random().toString(36).slice(2, 8)),
+          name: x.name || '',
+          login: String(x.login),
+          password: String(x.password),
+          note: x.note || '',
+          region: x.region || 'us',
+          category: normalizeCategory(x.category || '12-15'),
+          createdAt: x.createdAt || Date.now()
+        }));
+        if (!valid.length){ showToast('No valid accounts in file', true); return; }
+
+        const existingIds = new Set(state.accounts.map(a => a.id));
+        const fresh = valid.filter(x => !existingIds.has(x.id));
+        state.accounts = fresh.concat(state.accounts);
+        const saved = save();
+        renderAll();
+        showToast('Imported ' + fresh.length + ' new account(s)' + (saved.ls || saved.cookie ? '' : ' — not saved!'), !saved.ls && !saved.cookie);
+      } catch(err){
+        showToast('Invalid JSON file', true);
+      }
+    };
+    reader.readAsText(file);
+    e.target.value = '';
+  });
+
+  /* ─── Nav decoration ─── */
   document.querySelectorAll('[data-soon]').forEach(function(btn){
     btn.addEventListener('click', function(){ showToast('Coming soon'); });
   });
 
+  /* ─── Init ─── */
   renderAll();
+
+  /* Console diagnostics */
+  if (window.console && console.log){
+    console.log('[PIXORA] storage:', storageState, '| accounts:', state.accounts.length, '| key:', STORAGE_KEY);
+  }
 })();
 </script>
 </body>
